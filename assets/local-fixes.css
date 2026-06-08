@@ -1,0 +1,15 @@
+/*
+  Local export fix:
+  The production bundle leaves several scroll-animated content blocks at
+  inline opacity: 0 in static/headless rendering. Reveal those inline-styled
+  blocks without overriding class-based hidden carousel/menu states.
+*/
+#root [style*="opacity: 0"] {
+  opacity: 1 !important;
+}
+
+#root [style*="translateY(20px)"],
+#root [style*="translateY(40px)"],
+#root [style*="translateY(50px)"] {
+  transform: none !important;
+}
